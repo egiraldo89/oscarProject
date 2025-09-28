@@ -38,7 +38,7 @@ export default function Home() {
         </a>
         <a
           href="https://instagram.com"
-          className="block w-14 h-14 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          className="block w-14 h-14 bg-gradient-to-r from-brand-orange to-brand-orange hover:from-brand-orange hover:to-brand-orange rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
@@ -53,51 +53,74 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-40 bg-black/20 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold text-white">
-              <span className="text-orange-500">INNOVA</span> DEKO
+            <div className="flex items-center">
+              <Image
+                src="/images/logoInnovadeko.png"
+                alt="INNOVADEKO - Persianas, Toldos & Cortinas"
+                width={160}
+                height={48}
+                className="h-10 w-auto hover:opacity-90 transition-opacity cursor-pointer"
+                priority
+              />
             </div>
             <div className="hidden md:flex space-x-8">
-              <a href="#inicio" className="text-white hover:text-orange-400 transition-colors cursor-pointer">Inicio</a>
-              <a href="#servicios" className="text-white hover:text-orange-400 transition-colors cursor-pointer">Servicios</a>
-              <a href="#galeria" className="text-white hover:text-orange-400 transition-colors cursor-pointer">Galería</a>
-              <a href="#contacto" className="text-white hover:text-orange-400 transition-colors cursor-pointer">Contacto</a>
+              <a href="#inicio" className="text-white hover:text-brand-orange transition-colors cursor-pointer">Inicio</a>
+              <a href="#servicios" className="text-white hover:text-brand-orange transition-colors cursor-pointer">Servicios</a>
+              <a href="#galeria" className="text-white hover:text-brand-orange transition-colors cursor-pointer">Galería</a>
+              <a href="#contacto" className="text-white hover:text-brand-orange transition-colors cursor-pointer">Contacto</a>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-900/50 to-transparent z-20"></div>
+        {/* Hero Section */}
+        <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-orange/20 to-transparent z-20"></div>
+          
         
-        {/* Background Image */}
+        {/* Background Video */}
         <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2016&q=80"
-            alt="Luxury curtains"
-            fill
-            className="object-cover"
-            priority
-          />
+          {/* Desktop Video */}
+          <video
+            className="hidden md:block w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/videos/1-INNOVADEKO INTRO HORIZONTAL.mp4" type="video/mp4" />
+            {/* Fallback image for browsers that don't support video */}
+              <Image
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2016&q=80"
+                alt="Luxury curtains"
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority
+              />
+          </video>
+          
+          {/* Mobile Video */}
+          <video
+            className="block md:hidden w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/videos/2-INNOVADEKO INTRO VERTICAL.mp4" type="video/mp4" />
+            {/* Fallback image for browsers that don't support video */}
+              <Image
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2016&q=80"
+                alt="Luxury curtains"
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority
+              />
+          </video>
         </div>
 
-        <div className={`relative z-30 text-center text-white px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-orange-300 bg-clip-text text-transparent">
-            Elegancia en Cada Ventana
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-200">
-            PERSIANAS, TOLDOS & CORTINAS - Soluciones premium para tu hogar
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
-              Ver Catálogo
-            </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-orange-900 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 cursor-pointer">
-              Solicitar Cotización
-            </button>
-          </div>
-        </div>
 
         {/* Scroll Indicator */}
         <div 
@@ -112,8 +135,8 @@ export default function Home() {
             <div className="text-white text-sm font-medium opacity-80 group-hover:opacity-100 transition-opacity">
               Ver más
             </div>
-            <div className="w-8 h-12 border-2 border-white rounded-full flex justify-center group-hover:border-orange-400 transition-colors">
-              <svg className="w-4 h-4 text-white mt-2 group-hover:text-orange-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-8 h-12 border-2 border-white rounded-full flex justify-center group-hover:border-brand-orange transition-colors">
+              <svg className="w-4 h-4 text-white mt-2 group-hover:text-brand-orange transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
@@ -130,64 +153,106 @@ export default function Home() {
       <section id="servicios" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nuestros Servicios</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ofrecemos soluciones completas para la decoración de ventanas con los más altos estándares de calidad
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 brand-title">INNOVA DEKO</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto brand-body mb-6">
+              Somos una empresa dedicada a la comercialización de productos para el cubrimiento, 
+              la decoración de ventanas y la protección solar.
+            </p>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto brand-body">
+              En los últimos años hemos incursionado en nuevas líneas de producto como 
+              películas de control solar inteligente, tapetes de área y sistemas de automatización.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Cortinas de Lujo */}
-            <div className="group bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            {/* Servicio 1: Asesoría Integral */}
+            <div className="group bg-gradient-to-br from-brand-orange-50 to-brand-orange-100 p-8 rounded-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Cortinas de Lujo</h3>
-              <p className="text-gray-600 mb-6">
-                Cortinas premium en seda, terciopelo y materiales exclusivos para crear ambientes sofisticados
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 brand-subtitle">Asesoría Integral</h3>
+              <p className="text-gray-600 mb-6 brand-body">
+                Asesoría integral para la decoración de los espacios
               </p>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Telas importadas de alta calidad</li>
-                <li>• Diseños personalizados</li>
-                <li>• Instalación profesional</li>
+              <ul className="space-y-2 text-gray-600 brand-body">
+                <li>• Diseño personalizado</li>
+                <li>• Consultoría especializada</li>
+                <li>• Soluciones a medida</li>
               </ul>
             </div>
 
-            {/* Persianas Eléctricas */}
+            {/* Servicio 2: Mantenimiento Profesional */}
             <div className="group bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
               <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Persianas Eléctricas</h3>
-              <p className="text-gray-600 mb-6">
-                Control inteligente de la luz con persianas motorizadas de última generación
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 brand-subtitle">Mantenimiento Profesional</h3>
+              <p className="text-gray-600 mb-6 brand-body">
+                Mantenimiento profesional de todos nuestros productos
               </p>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Control remoto y app móvil</li>
-                <li>• Programación automática</li>
-                <li>• Integración domótica</li>
+              <ul className="space-y-2 text-gray-600 brand-body">
+                <li>• Servicio técnico especializado</li>
+                <li>• Mantenimiento preventivo</li>
+                <li>• Reparaciones garantizadas</li>
               </ul>
             </div>
 
-            {/* Toldos Premium */}
-            <div className="group bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            {/* Servicio 3: Lavado, Adaptación, Reparación e Instalación */}
+            <div className="group bg-gradient-to-br from-brand-orange-50 to-brand-orange-100 p-8 rounded-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Toldos Premium</h3>
-              <p className="text-gray-600 mb-6">
-                Toldos de alta calidad para exteriores con materiales resistentes y diseños modernos
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 brand-subtitle">Lavado, Adaptación, Reparación e Instalación</h3>
+              <p className="text-gray-600 mb-6 brand-body">
+                Servicios completos de lavado, adaptación, reparación e instalación
               </p>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Materiales resistentes al clima</li>
-                <li>• Diseños personalizados</li>
-                <li>• Instalación profesional</li>
+              <ul className="space-y-2 text-gray-600 brand-body">
+                <li>• Lavado profesional</li>
+                <li>• Adaptación a medida</li>
+                <li>• Instalación especializada</li>
+              </ul>
+            </div>
+
+            {/* Servicio 4: Recogida y Entrega a Domicilio */}
+            <div className="group bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 brand-subtitle">Recogida y Entrega a Domicilio</h3>
+              <p className="text-gray-600 mb-6 brand-body">
+                Recogida y entrega a domicilio para tu comodidad
+              </p>
+              <ul className="space-y-2 text-gray-600 brand-body">
+                <li>• Servicio a domicilio</li>
+                <li>• Recogida programada</li>
+                <li>• Entrega segura</li>
+              </ul>
+            </div>
+
+            {/* Servicio 5: Calidad y Garantía */}
+            <div className="group bg-gradient-to-br from-brand-orange-50 to-brand-orange-100 p-8 rounded-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 md:col-span-2 lg:col-span-1">
+              <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 brand-subtitle">Calidad y Garantía</h3>
+              <p className="text-gray-600 mb-6 brand-body">
+                Calidad y garantía en el servicio
+              </p>
+              <ul className="space-y-2 text-gray-600 brand-body">
+                <li>• Garantía extendida</li>
+                <li>• Calidad certificada</li>
+                <li>• Satisfacción garantizada</li>
               </ul>
             </div>
           </div>
@@ -198,20 +263,26 @@ export default function Home() {
       <section id="galeria" className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Galería de Proyectos</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Descubre algunos de nuestros trabajos más destacados
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 brand-title">Galería de Cortinas</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto brand-body">
+              Descubre algunos de nuestros trabajos más destacados en cortinas y decoración
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-              "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-              "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-              "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-              "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-              "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              "/images/cortinas1.png",
+              "/images/cortinas2.png",
+              "/images/cortinas3.png",
+              "/images/cortinas4.png",
+              "/images/cortinas5.png",
+              "/images/cortinas6.png",
+              "/images/cortinas7.png",
+              "/images/cortinas8.png",
+              "/images/cortinas9.png",
+              "/images/cortinas10.png",
+              "/images/cortinas11.png",
+              "/images/cortinas12.png"
             ].map((src, index) => (
               <div key={index} className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <Image
@@ -223,8 +294,8 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-lg font-semibold">Proyecto Elegante</h3>
-                    <p className="text-sm opacity-90">Cortinas de seda italiana</p>
+                    <h3 className="text-lg font-semibold">Cortinas INNOVADEKO</h3>
+                    <p className="text-sm opacity-90">Diseño y calidad premium</p>
                   </div>
                 </div>
               </div>
@@ -234,21 +305,21 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contacto" className="py-20 bg-gradient-to-br from-orange-900 to-gray-900">
+      <section id="contacto" className="py-20 bg-gradient-to-br from-brand-orange to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">¿Listo para Transformar tu Hogar?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 brand-title">¿Listo para Transformar tu Hogar?</h2>
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto brand-body">
             Contacta con nuestros expertos para una consulta gratuita y descubre las posibilidades infinitas
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-orange-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
+            <button className="bg-white text-brand-orange px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
               Llamar Ahora
             </button>
             <a
               href="https://wa.me/573016215531"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-2 border-white text-white hover:bg-white hover:text-orange-900 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 inline-block cursor-pointer"
+              className="border-2 border-white text-white hover:bg-white hover:text-brand-orange px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 inline-block cursor-pointer"
             >
               WhatsApp
             </a>
@@ -262,26 +333,32 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="mb-4">
-                <div className="text-2xl font-bold text-white">
-                  <span className="text-orange-500">INNOVA</span> DEKO
-                </div>
+                <Image
+                  src="/images/logoInnovadeko.png"
+                  alt="INNOVADEKO - Persianas, Toldos & Cortinas"
+                  width={200}
+                  height={60}
+                  className="h-16 w-auto"
+                />
               </div>
-              <p className="text-gray-400">
-                PERSIANAS, TOLDOS & CORTINAS - Transformamos espacios con elegancia desde 2010
+              <p className="text-gray-400 brand-body">
+                Somos una empresa dedicada a la comercialización de productos para el cubrimiento, 
+                la decoración de ventanas y la protección solar.
               </p>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Servicios</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Cortinas de Lujo</li>
-                <li>Persianas Eléctricas</li>
-                <li>Toldos Premium</li>
-                <li>Asesoría Personalizada</li>
+              <h4 className="text-lg font-semibold mb-4 brand-subtitle">Servicios</h4>
+              <ul className="space-y-2 text-gray-400 brand-body">
+                <li>Asesoría Integral</li>
+                <li>Mantenimiento Profesional</li>
+                <li>Lavado, Adaptación, Reparación e Instalación</li>
+                <li>Recogida y Entrega a Domicilio</li>
+                <li>Calidad y Garantía</li>
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Contacto</h4>
-              <ul className="space-y-2 text-gray-400">
+              <h4 className="text-lg font-semibold mb-4 brand-subtitle">Contacto</h4>
+              <ul className="space-y-2 text-gray-400 brand-body">
                 <li>📞 +57 301 621 5531</li>
                 <li>✉️ info@innovadeko.com</li>
                 <li>📍 Av. Principal 123, Ciudad</li>
